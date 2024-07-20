@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tunaikan Zakat, Infak, dan Sedekah - Lumbung Amal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="bg-light text-dark text-center py-5" style="background: url('img/diverse-people-refugee-camps.jpg') no-repeat center center; background-size: cover;">
+        <div class="container">
+            <h1 class="display-4">Tunaikan Zakat, Infak, dan Sedekah dengan Mudah</h1>
+            <p class="lead">Platform terpercaya untuk zakat, donasi, dan fidyah.</p>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Lumbung Amal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zakat.html">Zakat & Fidyah</a></li>
+                    <li class="nav-item"><a class="nav-link" href="donate.html">Donasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <section id="zakat-infaq-sedekah">
+            <h2 class="text-center mb-4">Formulir Tunaikan Zakat, Infak, dan Sedekah</h2>
+            <form id="zakatForm">
+                <div class="mb-3">
+                    <label for="fundType" class="form-label">Pilih Jenis Dana:</label>
+                    <select id="fundType" name="fundType" class="form-select" required>
+                        <option value="">Pilih Jenis Dana</option>
+                        <option value="zakat">Zakat</option>
+                        <option value="infaq_sedekah">Sedekah/Infak</option>
+                        <option value="fidyah">Fidyah</option>
+                    </select>
+                </div>
+
+                <div id="zakatOptions" class="mb-3 d-none">
+                    <label for="zakatType" class="form-label">Pilih Jenis Zakat:</label>
+                    <select id="zakatType" name="zakatType" class="form-select">
+                        <option value="penghasilan">Zakat Penghasilan</option>
+                        <option value="maal">Zakat Maal</option>
+                    </select>
+                </div>
+
+                <div id="infaqSedekahOptions" class="mb-3 d-none">
+                    <label for="infaqSedekahType" class="form-label">Pilih Jenis Sedekah/Infak:</label>
+                    <select id="infaqSedekahType" name="infaqSedekahType" class="form-select">
+                        <option value="yatim">Sedekah Yatim</option>
+                        <option value="bencana">Sedekah Bencana</option>
+                        <option value="daging">Sedekah Daging</option>
+                        <option value="alquran">Sedekah Penghafal Alquran</option>
+                        <option value="kemanusiaan">Infak Kemanusiaan</option>
+                        <option value="pendidikan">Infak Pendidikan</option>
+                        <option value="kesehatan">Infak Kesehatan</option>
+                        <option value="ekonomi">Infak Ekonomi</option>
+                    </select>
+                </div>
+
+                <div id="fidyahOptions" class="mb-3 d-none">
+                    <label for="fidyahDays" class="form-label">Jumlah Hari:</label>
+                    <select id="fidyahDays" name="fidyahDays" class="form-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Masukkan Nominal:</label>
+                    <input type="number" id="amount" name="amount" class="form-control" required>
+                </div>
+
+                <h4 class="mt-4">Data Diri</h4>
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Nama Lengkap:</label>
+                    <input type="text" id="fullName" name="fullName" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Pilih Gelar:</label>
+                    <div>
+                        <input type="radio" id="bapak" name="title" value="Bapak" required>
+                        <label for="bapak">Bapak</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="ibu" name="title" value="Ibu" required>
+                        <label for="ibu">Ibu</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">Nomor Handphone:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" id="verify" name="verify" class="form-check-input" required>
+                    <label for="verify" class="form-check-label">
+                        Dengan mengisi formulir ini, donatur akan menerima Bukti Setor Zakat, laporan penyaluran, info layanan LUMBUNG AMAL melalui email & whatsapp.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Pilih Pembayaran</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-light text-dark text-center py-3">
+        <p>&copy; 2024 Lumbung Amal. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <script src="js/slicknav.min.js"></script>
+    <script>
+        document.getElementById('fundType').addEventListener('change', function () {
+            var fundType = this.value;
+            document.getElementById('zakatOptions').classList.add('d-none');
+            document.getElementById('infaqSedekahOptions').classList.add('d-none');
+            document.getElementById('fidyahOptions').classList.add('d-none');
+            document.getElementById('amount').value = '';
+
+            if (fundType === 'zakat') {
+                document.getElementById('zakatOptions').classList.remove('d-none');
+            } else if (fundType === 'infaq_sedekah') {
+                document.getElementById('infaqSedekahOptions').classList.remove('d-none');
+            } else if (fundType === 'fidyah') {
+                document.getElementById('fidyahOptions').classList.remove('d-none');
+                document.getElementById('fidyahDays').addEventListener('change', function () {
+                    var days = this.value;
+                    document.getElementById('amount').value = days * 60000;
+                });
+            }
+        });
+
+        document.getElementById('zakatForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var fundType = document.getElementById('fundType').value;
+            var zakatType = document.getElementById('zakatType').value;
+            var infaqSedekahType = document.getElementById('infaqSedekahType').value;
+            var fidyahDays = document.getElementById('fidyahDays').value;
+            var amount = document.getElementById('amount').value;
+            var fullName = document.getElementById('fullName').value;
+            var title = document.querySelector('input[name="title"]:checked').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var email = document.getElementById('email').value;
+
+            var data = {
+                fundType: fundType,
+                zakatType: zakatType,
+                infaqSedekahType: infaqSedekahType,
+                fidyahDays: fidyahDays,
+                amount: amount,
+                fullName: fullName,
+                title: title,
+                phoneNumber: phoneNumber,
+                email: email
+            };
+
+            localStorage.setItem('formData', JSON.stringify(data));
+            window.location.href = 'payment.html';
+        });
+    </script>
+</body>
+</html>

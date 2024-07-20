@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Lumbung Amal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="bg-light text-dark text-center py-5" style="background: url('img/diverse-people-refugee-camps.jpg') no-repeat center center; background-size: cover;">
+        <div class="container">
+            <h1 class="display-4">Selamat Datang di Lumbung Amal</h1>
+            <p class="lead">Platform terpercaya untuk zakat, donasi, dan fidyah.</p>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Lumbung Amal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zakat.html">Zakat & Fidyah</a></li>
+                    <li class="nav-item"><a class="nav-link" href="donate.html">Donasi</a></li>
+					<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+    <main class="container py-5">
+        <section id="payment">
+            <h2 class="text-center mb-4">Informasi Pembayaran</h2>
+            <div id="paymentInfo" class="mb-4"></div>
+
+            <h4>Metode Pembayaran</h4>
+            <form id="paymentForm">
+                <div class="mb-3">
+                    <label for="paymentMethod" class="form-label">Pilih Metode Pembayaran:</label>
+                    <select id="paymentMethod" class="form-select" required>
+                        <option value="bank">Transfer Bank</option>
+                        <option value="ewallet">E-Wallet</option>
+                    </select>
+                </div>
+
+                <div id="bankOptions" class="mb-3" style="display: none;">
+                    <label for="bankSelect" class="form-label">Pilih Bank:</label>
+                    <select id="bankSelect" class="form-select">
+                        <option value="bankA">Bank A - 1234567890</option>
+                        <option value="bankB">Bank B - 0987654321</option>
+                    </select>
+                </div>
+
+                <div id="ewalletInfo" class="mb-3" style="display: none;">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#qrisModal">Lihat QRIS Code</button>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kirim Pembayaran</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- QRIS Modal -->
+    <div class="modal fade" id="qrisModal" tabindex="-1" aria-labelledby="qrisModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrisModalLabel">QRIS Code</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/scan_me_qr_code.jpg" alt="QRIS Code" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-dark text-center py-3">
+        <p>&copy; 2024 Lumbung Amal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var formData = JSON.parse(localStorage.getItem('formData'));
+            if (formData) {
+                var paymentInfo = document.getElementById('paymentInfo');
+                var infoHTML = '';
+
+                if (formData.fundType === 'zakat') {
+                    infoHTML += `<p>Jenis Dana: Zakat</p>`;
+                    infoHTML += `<p>Jenis Zakat: ${formData.zakatType}</p>`;
+                } else if (formData.fundType === 'infaqSedekah') {
+                    infoHTML += `<p>Jenis Dana: Sedekah/Infak</p>`;
+                    infoHTML += `<p>Jenis Sedekah/Infak: ${formData.infaqSedekahType}</p>`;
+                } else if (formData.fundType === 'fidyah') {
+                    infoHTML += `<p>Jenis Dana: Fidyah</p>`;
+                    infoHTML += `<p>Jumlah Hari Fidyah: ${formData.fidyahDays}</p>`;
+                }
+
+                infoHTML += `<p>Nominal: ${formData.amount}</p>`;
+                infoHTML += `<p>Nama Lengkap: ${formData.title} ${formData.fullName}</p>`;
+                infoHTML += `<p>Nomor Handphone: ${formData.phoneNumber}</p>`;
+                infoHTML += `<p>Email: ${formData.email}</p>`;
+                paymentInfo.innerHTML = infoHTML;
+            }
+
+            var paymentMethodSelect = document.getElementById('paymentMethod');
+            var bankOptions = document.getElementById('bankOptions');
+            var ewalletInfo = document.getElementById('ewalletInfo');
+
+            paymentMethodSelect.addEventListener('change', function () {
+                if (this.value === 'bank') {
+                    bankOptions.style.display = 'block';
+                    ewalletInfo.style.display = 'none';
+                } else if (this.value === 'ewallet') {
+                    bankOptions.style.display = 'none';
+                    ewalletInfo.style.display = 'block';
+                } else {
+                    bankOptions.style.display = 'none';
+                    ewalletInfo.style.display = 'none';
+                }
+            });
+
+            document.getElementById('paymentForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var paymentMethod = paymentMethodSelect.value;
+                var paymentDetails = '';
+
+                if (paymentMethod === 'bank') {
+                    var bankSelect = document.getElementById('bankSelect');
+                    paymentDetails = `Transfer ke ${bankSelect.options[bankSelect.selectedIndex].text}`;
+                } else if (paymentMethod === 'ewallet') {
+                    paymentDetails = 'Menggunakan QRIS Code yang disediakan.';
+                }
+
+                alert('Metode Pembayaran: ' + paymentMethod + '\n' + paymentDetails);
+                // Logic untuk menyimpan dan memproses pembayaran dapat ditambahkan di sini
+            });
+        });
+    </script>
+</html>
