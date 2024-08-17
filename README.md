@@ -16,20 +16,6 @@
 - **CSS**: Styling halaman dengan Bootstrap 5 dan custom styles.
 - **JavaScript**: Interaktivitas dan pengolahan data formulir.
 
-## Instalasi dan Penggunaan
-
-1. **Clone Repository**: Clone repositori ini ke komputer lokal Anda.
-    ```bash
-    git clone https://github.com/username/lumbung-amal.git
-    ```
-
-2. **Masuk ke Direktori Proyek**:
-    ```bash
-    cd lumbung-amal
-    ```
-
-3. **Jalankan Proyek**: Buka `index.html` di browser Anda untuk melihat situs web.
-
 ## Developer
 
 - **Nama**: Yurida Zani
