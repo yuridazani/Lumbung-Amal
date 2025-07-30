@@ -1,94 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Lumbung Amal</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Lumbung Amal - Platform Zakat, Infak, dan Donasi Terpercaya</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            margin-top: -3rem; /* Adjust position if needed */
-            z-index: 1000; /* Ensure navbar is above other content */
+        /* Definisi font kustom dan beberapa style dasar */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Warna latar belakang netral */
         }
-        .navbar-nav .nav-link {
-            color: #333; /* Dark text color */
-            font-weight: 500; /* Slightly bolder text */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
         }
-        .navbar-nav .nav-link:hover {
-            color: #007bff; /* Change color on hover */
+        /* Styling untuk efek "frosted glass" di navbar */
+        .navbar-glass {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        .navbar-brand {
-            font-size: 1.75rem; /* Larger brand text */
-            font-weight: 700; /* Bolder brand text */
+        /* Class untuk animasi scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        header {
-            color: white; /* White text for better contrast */
-            text-align: center;
-            padding: 6rem 0;
-            background: url('img/diverse-people-refugee-camps.jpg') no-repeat center center;
-            background-size: cover;
-        }
-        .main-content {
-            padding-top: 4rem; /* Add padding to prevent overlap */
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="display-4">Selamat Datang di Lumbung Amal</h1>
-            <p class="lead">Platform terpercaya untuk zakat, donasi, dan fidyah.</p>
-        </div>
-    </header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Lumbung Amal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
-                    <li class="nav-item"><a class="nav-link" href="zakat.html">Zakat & Fidyah</a></li>
-                    <li class="nav-item"><a class="nav-link" href="donate.html">Donasi</a></li>
-					<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                </ul>
+<body class="text-gray-700">
+
+    <nav id="navbar" class="sticky top-0 z-50 navbar-glass border-b border-gray-200/80 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="index.html" class="text-2xl font-bold text-green-600">
+                Lumbung Amal
+            </a>
+            <div class="hidden md:flex items-center space-x-2">
+                <a href="index.html" class="text-gray-800 font-semibold py-2 px-4 rounded-full hover:bg-green-100 transition-colors">Home</a>
+                <a href="about.html" class="text-gray-600 py-2 px-4 rounded-full hover:bg-green-100 transition-colors">Tentang Kami</a>
+                <a href="zakat.html" class="text-gray-600 py-2 px-4 rounded-full hover:bg-green-100 transition-colors">Zakat & Fidyah</a>
+                <a href="blog.html" class="text-gray-600 py-2 px-4 rounded-full hover:bg-green-100 transition-colors">Blog</a>
+                <a href="donate.html" class="bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
+                    Donasi Sekarang
+                </a>
             </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fa fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg">
+            <a href="index.html" class="block text-gray-800 font-semibold py-3 px-4 border-b">Home</a>
+            <a href="about.html" class="block text-gray-600 py-3 px-4 border-b">Tentang Kami</a>
+            <a href="zakat.html" class="block text-gray-600 py-3 px-4 border-b">Zakat & Fidyah</a>
+            <a href="blog.html" class="block text-gray-600 py-3 px-4 border-b">Blog</a>
+            <a href="donate.html" class="block bg-green-600 text-white font-bold text-center py-3 px-4 m-4 rounded-full">Donasi Sekarang</a>
         </div>
     </nav>
 
-    <main class="container py-5 main-content">
-        <section>
-            <h2>Kenapa Memilih Kami?</h2>
-            <p>Kami menyediakan platform yang aman dan transparan untuk menyalurkan zakat, donasi, dan fidyah Anda kepada yang membutuhkan.</p>
+    <section class="relative min-h-screen flex items-center justify-center text-center text-white -mt-[80px]">
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        <img src="img/diverse-people-refugee-camps.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Diverse people in refugee camps receiving aid">
+        <div class="relative z-20 p-4 max-w-4xl mx-auto reveal">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg leading-tight">
+                Setiap Kebaikan Anda, Adalah Harapan Baru Bagi Mereka
+            </h1>
+            <p class="text-lg md:text-xl font-light mb-8 drop-shadow-md">
+                Salurkan zakat, infak, dan sedekah Anda melalui platform yang amanah dan transparan untuk menjangkau mereka yang paling membutuhkan.
+            </p>
+            <a href="donate.html" class="bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105 text-lg inline-block">
+                Mulai Berbagi <i class="fa fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <main class="container mx-auto py-16 md:py-24 px-4">
+
+        <section class="text-center mb-20 md:mb-24 reveal">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Amanah, Transparan, dan Tepat Sasaran</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">Kami memastikan setiap donasi yang Anda berikan sampai kepada mereka yang berhak dengan cara yang paling efektif.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-green-100 text-green-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-shield-halved text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Terverifikasi & Amanah</h3>
+                    <p class="text-gray-600">Lembaga kami telah terverifikasi dan dipercaya oleh ribuan donatur untuk menyalurkan kebaikan.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-green-100 text-green-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-chart-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Laporan Transparan</h3>
+                    <p class="text-gray-600">Anda dapat memantau penyaluran donasi Anda melalui laporan berkala yang kami sediakan.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-green-100 text-green-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-people-group text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Tepat Sasaran</h3>
+                    <p class="text-gray-600">Bantuan disalurkan langsung kepada kaum dhuafa, yatim piatu, dan program sosial lainnya.</p>
+                </div>
+            </div>
         </section>
+
+        <section class="mb-20 md:mb-24 reveal">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">Program Kebaikan Pilihan</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="img/3156.jpg" alt="Zakat" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Tunaikan Zakat & Fidyah</h3>
+                        <p class="text-gray-600 mb-4">Sucikan harta, tenangkan jiwa. Tunaikan kewajiban Zakat dan Fidyah Anda dengan mudah dan cepat.</p>
+                        <a href="zakat.html" class="font-semibold text-green-600 hover:underline">Hitung Zakat Sekarang <i class="fa fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="img/3156.jpg" alt="Donasi" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Donasi Kemanusiaan</h3>
+                        <p class="text-gray-600 mb-4">Bantu saudara kita yang membutuhkan melalui program-program kemanusiaan yang berdampak luas.</p>
+                        <a href="donate.html" class="font-semibold text-green-600 hover:underline">Lihat Program Donasi <i class="fa fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="img/3156.jpg" alt="Blog" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Kisah Inspiratif</h3>
+                        <p class="text-gray-600 mb-4">Baca artikel dan kisah inspiratif tentang kekuatan berbagi dan dampak kebaikan Anda.</p>
+                        <a href="blog.html" class="font-semibold text-green-600 hover:underline">Kunjungi Blog <i class="fa fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
     </main>
-    
-    <footer class="bg-light text-dark text-center py-3">
-    <p>&copy; 2024 Lumbung Amal. All rights reserved.</p>
-    <p>Developed by Yurida Zani</p>
-</footer>
 
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto py-12 px-4">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold">Lumbung Amal</h3>
+                <p class="max-w-md mx-auto mt-2 text-gray-400">Menjadi jembatan kebaikan antara Anda dan mereka yang membutuhkan.</p>
+                <div class="mt-6">
+                    <a href="donate.html" class="bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
+                        Donasi Sekarang
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-center">
+                <p class="text-gray-500">&copy; 2024 Lumbung Amal. All rights reserved.</p>
+                <p class="text-gray-500 mt-4 md:mt-0">Developed by Yurida Zani</p>
+            </div>
+        </div>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/nice-select.min.js"></script>
-    <script src="js/gijgo.min.js"></script>
-    <script src="js/slicknav.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Script untuk Navigasi Mobile ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Script untuk Efek Navigasi saat Scroll ---
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                }
+            });
+
+            // --- Script untuk Animasi saat Scroll (Intersection Observer) ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const elementsToReveal = document.querySelectorAll('.reveal');
+            elementsToReveal.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
 </body>
 </html>
