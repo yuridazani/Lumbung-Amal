@@ -179,9 +179,9 @@
             // --- Script untuk Tombol Selesai ---
             const finishButton = document.getElementById('finish-payment-button');
             finishButton.addEventListener('click', () => {
-                alert('Terima kasih atas donasi Anda! Semoga Allah SWT membalas kebaikan Anda dengan berlipat ganda. Aamiin.');
-                localStorage.removeItem('formData'); // Hapus data setelah selesai
-                window.location.href = 'index.html'; // Arahkan kembali ke halaman utama
+                // Tidak perlu alert atau hapus localStorage di sini lagi.
+                // Cukup arahkan ke halaman terima kasih.
+                window.location.href = 'terima-kasih.html'; 
             });
         });
     </script>
