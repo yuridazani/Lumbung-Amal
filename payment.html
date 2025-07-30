@@ -26,17 +26,25 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-        /* Custom style untuk opsi pembayaran yang dipilih */
         .payment-option input:checked + label {
-            border-color: #22c55e; /* green-500 */
-            background-color: #f0fdf4; /* green-50 */
+            border-color: #22c55e;
+            background-color: #f0fdf4;
             box-shadow: 0 0 0 2px #22c55e;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body class="text-gray-700">
 
-    <nav id="navbar" class="sticky top-0 z-50 navbar-glass border-b border-gray-200/80 transition-all duration-300">
+    <nav id="navbar" class="sticky top-0 z-50 navbar-glass border-b border-gray-200/80">
         <div class="container mx-auto flex justify-between items-center p-4">
             <a href="index.html" class="text-2xl font-bold text-green-600">
                 Lumbung Amal
@@ -46,7 +54,7 @@
 
     <main class="py-16 md:py-24">
         <div class="container mx-auto px-4 max-w-2xl">
-            <div class="bg-white p-8 md:p-12 rounded-xl shadow-lg">
+            <div class="bg-white p-8 md:p-12 rounded-xl shadow-lg reveal">
                 <h1 class="text-3xl font-bold text-gray-800 text-center mb-2">Selesaikan Pembayaran Anda</h1>
                 <p class="text-center text-gray-500 mb-8">Hanya satu langkah lagi untuk menuntaskan kebaikan Anda.</p>
 
@@ -103,7 +111,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div id="ewallet-details" class="hidden text-center">
                             <h4 class="font-bold text-lg mb-4">Pindai Kode QRIS di Bawah Ini</h4>
                             <img src="img/scan_me_qr_code.jpg" alt="QRIS Code" class="mx-auto w-64 h-64 border p-2 rounded-lg">
@@ -133,33 +140,49 @@
             // --- Script untuk Navigasi Mobile ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
             
             // --- Script untuk Mengambil & Menampilkan Data Donasi ---
             const formData = JSON.parse(localStorage.getItem('formData'));
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            let data = formData;
+            if (!data && urlParams.has('amount')) {
+                 data = {
+                    fundType: 'Donasi Umum',
+                    name: urlParams.get('name') || 'Hamba Allah',
+                    amount: urlParams.get('amount'),
+                    title: '',
+                    fullName: urlParams.get('name') || 'Hamba Allah'
+                };
+                 // Simpan ke local storage agar konsisten
+                 localStorage.setItem('formData', JSON.stringify(data));
+            }
 
-            if (formData) {
-                // Tampilkan ringkasan
+            if (data) {
                 const summaryFundType = document.getElementById('summary-fundType');
                 const summaryName = document.getElementById('summary-name');
                 const summaryAmount = document.getElementById('summary-amount');
                 
                 let fundTypeText = "Donasi";
-                if (formData.fundType === 'zakat') {
-                    fundTypeText = formData.zakatType === 'maal' ? 'Zakat Maal' : 'Zakat Penghasilan';
-                } else if (formData.fundType === 'infaq_sedekah') {
+                if (data.fundType === 'zakat') {
+                    fundTypeText = data.zakatType === 'maal' ? 'Zakat Maal' : 'Zakat Penghasilan';
+                } else if (data.fundType === 'infaq_sedekah') {
                     fundTypeText = 'Infak/Sedekah';
-                } else if (formData.fundType === 'fidyah') {
-                    fundTypeText = `Fidyah (${formData.fidyahDays} hari)`;
+                } else if (data.fundType === 'fidyah') {
+                    fundTypeText = `Fidyah (${data.fidyahDays} hari)`;
+                } else if (data.fundType === 'Donasi Umum') {
+                    fundTypeText = 'Donasi Umum';
                 }
                 
                 summaryFundType.textContent = fundTypeText;
-                summaryName.textContent = `${formData.title} ${formData.fullName}`;
-                summaryAmount.textContent = `Rp ${parseInt(formData.amount).toLocaleString('id-ID')}`;
+                summaryName.textContent = `${data.title || ''} ${data.fullName || data.name}`;
+                summaryAmount.textContent = `Rp ${parseInt(data.amount).toLocaleString('id-ID')}`;
             } else {
-                // Jika tidak ada data, kembali ke halaman donasi
                 window.location.href = 'donate.html';
             }
 
@@ -176,13 +199,23 @@
                 });
             });
 
-            // --- Script untuk Tombol Selesai ---
+            // --- PERBAIKAN: Script untuk Tombol Selesai ---
             const finishButton = document.getElementById('finish-payment-button');
             finishButton.addEventListener('click', () => {
-                // Tidak perlu alert atau hapus localStorage di sini lagi.
-                // Cukup arahkan ke halaman terima kasih.
+                // Hapus alert dan langsung arahkan ke halaman terima kasih
                 window.location.href = 'terima-kasih.html'; 
             });
+
+            // --- Script untuk Animasi Scroll ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
     </script>
 
