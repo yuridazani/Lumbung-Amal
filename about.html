@@ -1,166 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami - Lumbung Amal</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
-        .about-section {
-            background: #f8f9fa;
-            padding: 3rem 0;
-            border-radius: 8px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
         }
-        .about-section h2, .faq-section h3 {
-            color: #343a40;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
         }
-        .about-section p {
-            color: #495057;
+        .navbar-glass {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
-        .faq-section {
-            margin-top: 2rem;
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .faq-item {
-            border-bottom: 1px solid #dee2e6;
-            padding: 1rem 0;
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        .faq-question {
-            font-weight: bold;
-        }
-        .contact-section {
-            margin-top: 2rem;
-        }
-        .contact-info, .contact-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-        }
-        .contact-info ul {
-            list-style: none;
-            padding: 0;
-        }
-        .contact-info ul li {
-            margin-bottom: 1rem;
-        }
-        .contact-info i {
-            margin-right: 0.5rem;
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body>
-    <header class="bg-light text-dark text-center py-5" style="background: url('img/diverse-people-refugee-camps.jpg') no-repeat center center; background-size: cover;">
-        <div class="container">
-            <h1 class="display-4">Selamat Datang di Lumbung Amal</h1>
-            <p class="lead">Platform terpercaya untuk zakat, donasi, dan fidyah.</p>
-        </div>
-    </header>
+<body class="text-gray-700">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Lumbung Amal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
-                    <li class="nav-item"><a class="nav-link" href="zakat.html">Zakat & Fidyah</a></li>
-                    <li class="nav-item"><a class="nav-link" href="donate.html">Donasi</a></li>
-					<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                </ul>
+    <nav id="navbar" class="sticky top-0 z-50 navbar-glass border-b border-gray-200/80 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="index.html" class="text-2xl font-bold text-green-600">
+                Lumbung Amal
+            </a>
+            <div class="hidden md:flex items-center space-x-2">
+                <a href="index.html" class="text-gray-600 py-2 px-4 rounded-full hover:bg-green-100 transition-colors">Home</a>
+                <a href="about.html" class="text-gray-800 font-semibold py-2 px-4 rounded-full hover:bg-green-100 transition-colors">Tentang Kami</a>
+                <a href="zakat.html" class="text-gray-600 py-2 px-4 rounded-full hover:bg-green-100 transition-colors">Zakat & Fidyah</a>
+                <a href="blog.html" class="text-gray-600 py-2 px-4 rounded-full hover:bg-green-100 transition-colors">Blog</a>
+                <a href="donate.html" class="bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
+                    Donasi Sekarang
+                </a>
             </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fa fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg">
+            <a href="index.html" class="block text-gray-600 py-3 px-4 border-b">Home</a>
+            <a href="about.html" class="block text-gray-800 font-semibold py-3 px-4 border-b">Tentang Kami</a>
+            <a href="zakat.html" class="block text-gray-600 py-3 px-4 border-b">Zakat & Fidyah</a>
+            <a href="blog.html" class="block text-gray-600 py-3 px-4 border-b">Blog</a>
+            <a href="donate.html" class="block bg-green-600 text-white font-bold text-center py-3 px-4 m-4 rounded-full">Donasi Sekarang</a>
         </div>
     </nav>
 
-    <main class="container py-5">
-        <section id="about" class="about-section">
-            <h2>Tentang Kami</h2>
-            <p>Lumbung Amal adalah platform terpercaya yang memudahkan Anda untuk menyalurkan zakat, donasi, dan fidyah kepada mereka yang membutuhkan. Kami berkomitmen untuk menyediakan layanan yang aman, transparan, dan efisien.</p>
-            
-            <div class="faq-section">
-                <h3>Frequently Asked Questions (FAQ)</h3>
-                <div class="faq-item">
-                    <p class="faq-question">1. Apa itu Lumbung Amal?</p>
-                    <p>Lumbung Amal adalah platform yang menyediakan layanan zakat, donasi, dan fidyah dengan sistem yang transparan dan mudah diakses.</p>
-                </div>
-                <div class="faq-item">
-                    <p class="faq-question">2. Bagaimana cara melakukan donasi?</p>
-                    <p>Anda dapat melakukan donasi melalui halaman Donasi di situs kami dengan memilih jumlah donasi dan mengikuti instruksi yang diberikan.</p>
-                </div>
-                <div class="faq-item">
-                    <p class="faq-question">3. Apakah donasi saya akan diterima dengan aman?</p>
-                    <p>Ya, kami memastikan semua donasi diterima dengan aman dan digunakan sesuai dengan tujuan yang telah ditetapkan.</p>
-                </div>
-                <div class="faq-item">
-                    <p class="faq-question">4. Bagaimana cara menghubungi tim Lumbung Amal?</p>
-                    <p>Anda dapat menghubungi kami melalui email di info@lumbungamal.org atau menggunakan formulir kontak di situs kami.</p>
-                </div>
-            </div>
-        </section>
+    <header class="bg-green-600 text-white text-center py-16 md:py-24">
+        <div class="container mx-auto px-4 reveal">
+            <h1 class="text-4xl md:text-5xl font-bold">Tentang Lumbung Amal</h1>
+            <p class="mt-4 text-lg max-w-2xl mx-auto">Mengenal lebih dekat misi dan visi kami dalam menebar kebaikan.</p>
+        </div>
+    </header>
 
-        <section class="contact-section mb-5">
-            <h2 class="text-center mb-4">Kontak Kami</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="contact-info bg-light p-4 rounded">
-                        <p>Jika Anda memiliki pertanyaan lebih lanjut atau ingin berkomunikasi langsung dengan kami, silakan hubungi kami melalui informasi kontak berikut:</p>
-                        <ul class="list-unstyled">
-                            <li><i class="fa fa-envelope"></i> Email: <a href="mailto:info@lumbungamal.com">info@lumbungamal.com</a></li>
-                            <li><i class="fa fa-phone"></i> Telepon: (021) 123-4567</li>
-                            <li><i class="fa fa-map-marker"></i> Alamat: Jl. Contoh No. 123, Jakarta, Indonesia</li>
-                        </ul>
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+
+            <section class="grid md:grid-cols-2 gap-12 items-center mb-20 md:mb-24 reveal">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Visi & Misi Kami</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Lumbung Amal adalah platform terpercaya yang memudahkan Anda untuk menyalurkan zakat, donasi, dan fidyah kepada mereka yang membutuhkan. Kami berkomitmen untuk menyediakan layanan yang aman, transparan, dan efisien.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fa fa-bullseye text-green-500 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Visi</h4>
+                                <p class="text-gray-600">Menjadi lembaga amil zakat yang terdepan dalam inovasi dan penyaluran bantuan yang memberdayakan.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa fa-tasks text-green-500 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Misi</h4>
+                                <p class="text-gray-600">Mengelola dana donatur secara profesional, menyalurkannya tepat sasaran, dan melaporkannya secara transparan.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="contact-form bg-light p-4 rounded">
-                        <h3 class="text-center mb-3">Formulir Kontak</h3>
-                        <form id="contactForm">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan nama Anda" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Pesan</label>
-                                <textarea class="form-control" id="message" rows="4" placeholder="Masukkan pesan Anda" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Kirim</button>
-                        </form>
-                    </div>
+                <div class="hidden md:block">
+                    <img src="img/diverse-people-refugee-camps.jpg" alt="Team discussing" class="rounded-xl shadow-lg w-full h-auto object-cover">
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <section class="max-w-4xl mx-auto mb-20 md:mb-24 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">Frequently Asked Questions (FAQ)</h2>
+                <div class="space-y-4">
+                    <details class="group bg-white p-6 rounded-lg shadow-sm cursor-pointer">
+                        <summary class="flex justify-between items-center font-semibold text-gray-800 text-lg">
+                            Apa itu Lumbung Amal?
+                            <i class="fa fa-chevron-down transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-4">
+                            Lumbung Amal adalah platform yang menyediakan layanan zakat, donasi, dan fidyah dengan sistem yang transparan dan mudah diakses untuk membantu mereka yang membutuhkan.
+                        </p>
+                    </details>
+                    <details class="group bg-white p-6 rounded-lg shadow-sm cursor-pointer">
+                        <summary class="flex justify-between items-center font-semibold text-gray-800 text-lg">
+                            Bagaimana cara melakukan donasi?
+                            <i class="fa fa-chevron-down transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-4">
+                            Anda dapat melakukan donasi melalui halaman Donasi di situs kami dengan memilih program dan jumlah donasi, lalu mengikuti instruksi pembayaran yang mudah.
+                        </p>
+                    </details>
+                    <details class="group bg-white p-6 rounded-lg shadow-sm cursor-pointer">
+                        <summary class="flex justify-between items-center font-semibold text-gray-800 text-lg">
+                            Apakah donasi saya akan disalurkan dengan aman?
+                            <i class="fa fa-chevron-down transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-4">
+                            Tentu saja. Kami memastikan semua donasi diterima dan disalurkan secara amanah dan transparan. Anda akan menerima laporan penyaluran dana secara berkala.
+                        </p>
+                    </details>
+                </div>
+            </section>
+
+            <section class="bg-white p-8 md:p-12 rounded-xl shadow-lg reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Hubungi Kami</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Informasi Kontak</h3>
+                        <p class="text-gray-600 mb-6">Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fa fa-envelope text-green-500 text-xl w-6"></i>
+                                <a href="mailto:info@lumbungamal.com" class="ml-4 text-gray-700 hover:text-green-600">info@lumbungamal.com</a>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fa fa-phone text-green-500 text-xl w-6"></i>
+                                <span class="ml-4 text-gray-700">(021) 123-4567</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa fa-map-marker-alt text-green-500 text-xl w-6 mt-1"></i>
+                                <span class="ml-4 text-gray-700">Jl. Kebaikan No. 123, Jakarta, Indonesia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="contactForm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nama</label>
+                            <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Pesan</label>
+                            <textarea id="message" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-700 transition-all duration-300">Kirim Pesan</button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
     </main>
 
-    <footer class="bg-light text-dark text-center py-3">
-    <p>&copy; 2024 Lumbung Amal. All rights reserved.</p>
-    <p>Developed by Yurida Zani</p>
-</footer>
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto py-12 px-4">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold">Lumbung Amal</h3>
+                <p class="max-w-md mx-auto mt-2 text-gray-400">Menjadi jembatan kebaikan antara Anda dan mereka yang membutuhkan.</p>
+                <div class="mt-6">
+                    <a href="donate.html" class="bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
+                        Donasi Sekarang
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-center">
+                <p class="text-gray-500">&copy; 2024 Lumbung Amal. All rights reserved.</p>
+                <p class="text-gray-500 mt-4 md:mt-0">Developed by Yurida Zani</p>
+            </div>
+        </div>
+    </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Script untuk Navigasi Mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/nice-select.min.js"></script>
-    <script src="js/gijgo.min.js"></script>
-    <script src="js/slicknav.min.js"></script>
+            // Script untuk Animasi saat Scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const elementsToReveal = document.querySelectorAll('.reveal');
+            elementsToReveal.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
 </body>
 </html>
