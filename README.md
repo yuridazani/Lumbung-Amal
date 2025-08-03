@@ -1,34 +1,36 @@
-# Lumbung Amal
+# Lumbung Amal - Website Donasi (Redesign)
 
-**Lumbung Amal** adalah situs web sederhana untuk penyaluran zakat, donasi, dan fidyah. Situs ini dirancang untuk mempermudah proses donasi dan pembayaran dengan antarmuka yang ramah pengguna.
+![Lumbung Amal Screenshot](https://github.com/yuridazani/Lumbung-Amal/blob/main/img/screenshot-1753930164673.png)
 
-## Fitur Utama
+## 📝 Deskripsi Proyek
 
-- **Beranda**: Menampilkan informasi umum tentang platform dan area-area yang akan disalurkan bantuan.
-- **Tentang Kami**: Menyediakan informasi mengenai lembaga dan misi kami.
-- **Zakat & Fidyah**: Halaman khusus untuk zakat dan fidyah, termasuk formulir untuk donasi dan pembayaran.
-- **Donasi**: Formulir untuk menyumbang ke berbagai kategori seperti kaum dhuafa, yatim piatu, dan lain-lain.
-- **Pembayaran**: Halaman untuk melengkapi proses pembayaran dengan opsi transfer bank atau e-wallet.
+**Lumbung Amal** adalah proyek redesign sebuah website lembaga amal fiktif. Tujuan proyek ini adalah untuk memodernisasi tampilan antarmuka (UI/UX) dari sebuah website amal yang dibangun dengan teknologi konvensional (HTML, CSS, Bootstrap) menjadi sebuah desain yang lebih bersih, modern, dan responsif menggunakan **Tailwind CSS**.
 
-## Teknologi yang Digunakan
+Proyek ini mendemonstrasikan kemampuan untuk merefaktor kode yang sudah ada, menerapkan *utility-first CSS framework*, dan meningkatkan pengalaman pengguna secara keseluruhan.
 
-- **HTML**: Struktur dasar halaman web.
-- **CSS**: Styling halaman dengan Bootstrap 5 dan custom styles.
-- **JavaScript**: Interaktivitas dan pengolahan data formulir.
+## ✨ Fitur Utama
 
-## Developer
+-   **Halaman Beranda Dinamis:** Menampilkan ringkasan program dan ajakan untuk berdonasi.
+-   **Formulir Donasi:** Halaman khusus untuk pengguna melakukan donasi.
+-   **Kalkulator Zakat (Simulasi):** Antarmuka interaktif untuk menghitung zakat.
+-   **Struktur Multi-halaman:** Termasuk halaman Tentang Kami, Blog, dan Detail Artikel.
+-   **Desain Responsif:** Tampilan yang dioptimalkan untuk semua ukuran layar, dari mobile hingga desktop.
 
-- **Nama**: Yurida Zani
+## 🚀 Teknologi yang Digunakan
 
-## Lisensi
+-   **HTML5**
+-   **Tailwind CSS** (untuk redesign)
+-   **CSS3 & SASS** (pada versi awal)
+-   **Bootstrap** (pada versi awal)
+-   **JavaScript (ES6+)**
+-   **jQuery** (pada versi awal)
 
-Proyek ini tidak menggunakan lisensi tertentu. Semua kode dan konten adalah milik **Yurida Zani**. Untuk penggunaan lebih lanjut atau pertanyaan, silakan hubungi melalui [email](mailto:yuridazani.personal@gmail.com).
+## 🔧 Cara Menjalankan Proyek
 
-## Kontribusi
+1.  Clone repositori ini:
+    ```bash
+    git clone [https://github.com/yuridazani/Lumbung-Amal.git](https://github.com/yuridazani/Lumbung-Amal.git)
+    ```
+2.  Buka salah satu file `.html` (misalnya `index.html`) di browser Anda, atau gunakan ekstensi Live Server di VS Code untuk pengalaman terbaik.
 
-Jika Anda ingin berkontribusi pada proyek ini, silakan buat pull request atau buka issue untuk mendiskusikan perubahan.
-
-## Kontak
-
-Untuk pertanyaan atau saran, Anda dapat menghubungi kami di [email](mailto:yuridazani.personal@gmail.com).
-
+Dibuat dengan ❤️ oleh **Yurida Zani**.
